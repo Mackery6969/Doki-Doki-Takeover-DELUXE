@@ -5295,6 +5295,7 @@ class PlayState extends MusicBeatState
 						SaveData.beatMonika = true;
 					case 5:
 						SaveData.beatFestival = true;
+						SaveData.unlockedBadEnding = true;
 						SaveData.unlockedEpiphany = true;
 					case 6:
 						SaveData.beatEncore = true;

@@ -64,6 +64,7 @@ class SaveData
 	public static var ratingToggle:Null<Bool> = true;
 	public static var shaders:Null<Bool> = true;
 	public static var songSpeed:Null<Float> = 1;
+	public static var coolDeluxeLogo:Null<Bool> = true;
 
 	// Costumes
 	public static var bfcostume:String = '';
@@ -86,6 +87,7 @@ class SaveData
 	public static var beatProtag:Null<Bool> = false;
 	public static var beatSide:Null<Bool> = false;
 	public static var unlockedEpiphany:Null<Bool> = false;
+	public static var unlockedBadEnding:Null<Bool> = false;
 	public static var beatEpiphany:Null<Bool> = false;
 	public static var beatCatfight:Null<Bool> = false;
 	public static var beatVA11HallA:Null<Bool> = false;
@@ -205,6 +207,7 @@ class SaveData
 		beatProtag = unlock;
 		beatSide = unlock;
 		unlockedEpiphany = unlock;
+		unlockedBadEnding = unlock;
 		sideStatus = unlock ? ['love n funkin', 'constricted', 'catfight', 'wilted'] : [];
 		weekUnlocked = unlock ? 10 : 1;
 

@@ -91,7 +91,10 @@ class TitleState extends MusicBeatState
 		add(gradient);
 
 		logoBl = new FlxSprite(-40, -12);
-		logoBl.frames = Paths.getSparrowAtlas('Start_Screen_AssetsPlus');
+		if (SaveData.coolDeluxeLogo)
+			logoBl.frames = Paths.getSparrowAtlas('DDLCStart_Screen_AssetsDeluxe');
+		else
+			logoBl.frames = Paths.getSparrowAtlas('Start_Screen_AssetsPlus');
 		logoBl.antialiasing = SaveData.globalAntialiasing;
 		logoBl.setGraphicSize(Std.int(logoBl.width * 0.8));
 		logoBl.animation.addByPrefix('bump', 'logo bumpin', 24, false);

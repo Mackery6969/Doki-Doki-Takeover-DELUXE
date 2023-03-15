@@ -857,7 +857,7 @@ class BadEnd extends Option
 
 	public override function press():Bool
 	{
-		CoolUtil.openURL('https://gamebanana.com/mods/386603');
+		SaveData.unlockedBadEnding = true;
 		MusicBeatState.resetState();
 		return false;
 	}

@@ -66,7 +66,10 @@ class DokiFreeplayState extends MusicBeatState
 		'you and me',
 		'takeover medley',
 		'libitina',
-		'erb'
+		'erb',
+		'stagnant',
+		'markov',
+		'home'
 	];
 
 	public static var multiDiff:Array<String> = [
@@ -148,8 +151,8 @@ class DokiFreeplayState extends MusicBeatState
 			icon.angle = 30;
 
 			if ((curPage == 1 && !SaveData.beatEncore)
-				|| (curPage == 3 && !SaveData.beatEpiphany)
-				|| curPage == 4)
+				|| (curPage == 4 && !SaveData.beatEpiphany)
+				|| curPage == 5)
 			{
 			}
 			else
@@ -302,7 +305,7 @@ class DokiFreeplayState extends MusicBeatState
 		costumeSelect.y += modifierMenu.y + modifierMenu.height + 10;
 		costumeSelect.antialiasing = SaveData.globalAntialiasing;
 		mouseManager.add(costumeSelect, onMouseDownCostume, null, null);
-		if (SaveData.beatProtag && (curPage != 3 && curPage != 4))
+		if (SaveData.beatProtag && (curPage != 4 && curPage != 5))
 			add(costumeSelect);
 
 		add(mouseManager);
@@ -347,12 +350,12 @@ class DokiFreeplayState extends MusicBeatState
 				openSubState(new DokiModifierSubState());
 			}
 
-			if (SaveData.beatProtag && FlxG.keys.justPressed.C && (curPage != 3 && curPage != 4))
+			if (SaveData.beatProtag && FlxG.keys.justPressed.C && (curPage != 4 && curPage != 5))
 				MusicBeatState.switchState(new CostumeSelectState());
 
 			if (controls.UP_P && !diffselect && (curPage != 3 && curPage != 4))
 			{
-				if ((curPage == 1 && !SaveData.beatEncore) || (curPage == 2 && !SaveData.beatPrologue))
+				if ((curPage == 1 && !SaveData.beatEncore) || (curPage == 3 && !SaveData.beatPrologue))
 				{
 				}
 				else
@@ -364,7 +367,7 @@ class DokiFreeplayState extends MusicBeatState
 
 			if (controls.DOWN_P && !diffselect && (curPage != 3 && curPage != 4))
 			{
-				if ((curPage == 1 && !SaveData.beatEncore) || (curPage == 2 && !SaveData.beatPrologue))
+				if ((curPage == 1 && !SaveData.beatEncore) || (curPage == 3 && !SaveData.beatPrologue))
 				{
 				}
 				else
@@ -737,26 +740,33 @@ class DokiFreeplayState extends MusicBeatState
 		curSelected = 0;
 		curPage += huh;
 
-		if (!SaveData.unlockedEpiphany)
+		if (!SaveData.unlockedBadEnding)
 		{
 			if (curPage >= 3)
 				curPage = 0;
 			if (curPage < 0)
 				curPage = 3 - 1;
 		}
-		else if (!SaveData.beatLibitina)
+		else if (!SaveData.unlockedEpiphany)
 		{
 			if (curPage >= 4)
 				curPage = 0;
 			if (curPage < 0)
 				curPage = 4 - 1;
 		}
-		else
+		else if (!SaveData.beatLibitina)
 		{
 			if (curPage >= 5)
 				curPage = 0;
 			if (curPage < 0)
 				curPage = 5 - 1;
+		}
+		else
+		{
+			if (curPage >= 6)
+				curPage = 0;
+			if (curPage < 0)
+				curPage = 6 - 1;
 		}
 		// updating page stuff here
 	}
